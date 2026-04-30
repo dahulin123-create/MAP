@@ -1,6 +1,6 @@
 "use strict";
 
-const APP_VERSION = "20260430-011";
+const APP_VERSION = "20260430-012";
 const UI_START_YEAR = 1971;
 const ROUTE_API_BASE = `${window.location.protocol}//${window.location.hostname}:8766`;
 
