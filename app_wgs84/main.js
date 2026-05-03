@@ -127,6 +127,7 @@ const dom = {
   yearLabel: document.getElementById("yearLabel"),
   yearRange: document.getElementById("yearRange"),
   attribution: document.querySelector(".attribution"),
+  themeToggle: document.getElementById("themeToggle"),
 };
 
 const ctx = dom.canvas.getContext("2d", { alpha: false });
@@ -704,11 +705,12 @@ function updateRouteStationOptions() {
 }
 
 function drawGrid() {
+  const isDark = document.documentElement.dataset.theme === "dark";
   ctx.save();
   ctx.lineWidth = 1;
-  ctx.strokeStyle = "rgba(28, 36, 32, 0.08)";
-  ctx.fillStyle = "rgba(28, 36, 32, 0.42)";
-  ctx.font = "11px Inter, sans-serif";
+  ctx.strokeStyle = isDark ? "rgba(255, 255, 255, 0.05)" : "rgba(28, 36, 32, 0.05)";
+  ctx.fillStyle = isDark ? "rgba(255, 255, 255, 0.3)" : "rgba(28, 36, 32, 0.3)";
+  ctx.font = "10px Inter, sans-serif";
 
   for (let lon = 70; lon <= 140; lon += 5) {
     ctx.beginPath();
@@ -733,6 +735,7 @@ function drawGrid() {
 }
 
 function drawCityLabels() {
+  const isDark = document.documentElement.dataset.theme === "dark";
   const cities = state.city
     ? state.cities.filter((city) => city.name === state.city)
     : [...state.cities].sort((a, b) => b.station_count - a.station_count).slice(0, 32);
@@ -740,8 +743,8 @@ function drawCityLabels() {
   ctx.save();
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.font = state.city ? "700 20px Inter, Microsoft YaHei, sans-serif" : "600 12px Inter, Microsoft YaHei, sans-serif";
-  ctx.fillStyle = state.city ? "rgba(28, 36, 32, 0.35)" : "rgba(28, 36, 32, 0.36)";
+  ctx.font = state.city ? "700 22px Inter, Microsoft YaHei, sans-serif" : "600 11px Inter, Microsoft YaHei, sans-serif";
+  ctx.fillStyle = isDark ? "rgba(255, 255, 255, 0.25)" : "rgba(28, 36, 32, 0.25)";
 
   for (const city of cities) {
     const point = worldToScreen(projectCoord(city.center));
@@ -1211,6 +1214,24 @@ async function searchRoute() {
   }
 }
 
+function toggleTheme() {
+  const isDark = document.documentElement.dataset.theme === "dark";
+  const newTheme = isDark ? "light" : "dark";
+  document.documentElement.dataset.theme = newTheme;
+  dom.themeToggle.textContent = isDark ? "◐" : "◑";
+
+  // Auto-switch basemap
+  if (isDark) {
+    if (state.basemap === "cartoDarkNoLabels") state.basemap = "cartoLightNoLabels";
+    else if (state.basemap === "cartoDark") state.basemap = "cartoLight";
+  } else {
+    if (state.basemap === "cartoLightNoLabels") state.basemap = "cartoDarkNoLabels";
+    else if (state.basemap === "cartoLight") state.basemap = "cartoDark";
+  }
+  dom.basemapSelect.value = state.basemap;
+  render();
+}
+
 function render() {
   updateLineOptions();
   refreshVisible();
@@ -1477,6 +1498,7 @@ function bindEvents() {
     if (event.key === "Enter") locateStation();
   });
   dom.locateStation.addEventListener("click", locateStation);
+  dom.themeToggle.addEventListener("click", toggleTheme);
   dom.routeSearch.addEventListener("click", searchRoute);
   dom.routeClear.addEventListener("click", clearRoute);
   dom.routeDestination.addEventListener("keydown", (event) => {

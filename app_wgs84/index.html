@@ -11,7 +11,7 @@
       <canvas id="mapCanvas" aria-label="地铁网络演化地图"></canvas>
 
       <header class="topbar">
-        <div class="brand">
+        <div class="brand glass">
           <span class="brand-mark"></span>
           <div>
             <h1>地铁网络演化地图</h1>
@@ -19,7 +19,7 @@
           </div>
         </div>
 
-        <div class="toolbar" aria-label="地图控制">
+        <div class="toolbar glass" aria-label="地图控制">
           <label class="control compact">
             <span>范围</span>
             <select id="citySelect">
@@ -69,37 +69,41 @@
             <span>站名</span>
             <input id="stationLabelsToggle" type="checkbox" checked aria-label="显示站点名称" />
           </label>
+
+          <button id="themeToggle" class="icon-button" title="切换深色模式" aria-label="切换深色模式">◐</button>
         </div>
       </header>
 
-      <section class="stats-panel" aria-label="当前统计">
-        <div>
-          <span class="stat-value" id="cityCount">0</span>
-          <span class="stat-label">城市</span>
-        </div>
-        <div>
-          <span class="stat-value" id="stationCount">0</span>
-          <span class="stat-label">站点</span>
-        </div>
-        <div>
-          <span class="stat-value" id="segmentCount">0</span>
-          <span class="stat-label">区间</span>
-        </div>
-        <div>
-          <span class="stat-value" id="lineCount">0</span>
-          <span class="stat-label">线路</span>
-        </div>
-        <div>
-          <span class="stat-value" id="newCount">0</span>
-          <span class="stat-label">当年新增</span>
-        </div>
-        <div>
-          <span class="stat-value" id="mileageCount">0</span>
-          <span class="stat-label">里程 km</span>
-        </div>
-        <div>
-          <span class="stat-value" id="newMileageCount">0</span>
-          <span class="stat-label">新增里程 km</span>
+      <section class="stats-panel glass" aria-label="当前统计">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-label">城市</span>
+            <span class="stat-value" id="cityCount">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">站点</span>
+            <span class="stat-value" id="stationCount">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">区间</span>
+            <span class="stat-value" id="segmentCount">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">线路</span>
+            <span class="stat-value" id="lineCount">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">当年新增</span>
+            <span class="stat-value" id="newCount">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">里程 km</span>
+            <span class="stat-value" id="mileageCount">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">新增里程 km</span>
+            <span class="stat-value" id="newMileageCount">0</span>
+          </div>
         </div>
         <div class="stats-note">里程：高德地图的线路长度统计，非官方统计</div>
       </section>
@@ -124,33 +128,34 @@
         <div id="routeResult" class="route-result">选择城市和年份后输入起终点。</div>
       </aside>
 
-      <aside class="detail-panel" aria-live="polite">
+      <aside class="detail-panel glass" aria-live="polite">
         <h2 id="detailTitle">全国网络</h2>
         <div id="detailBody" class="detail-body"></div>
       </aside>
 
-      <div class="map-buttons" aria-label="视图控制">
+      <div class="map-buttons glass" aria-label="视图控制">
         <button id="zoomIn" class="icon-button" title="放大" aria-label="放大">+</button>
         <button id="zoomOut" class="icon-button" title="缩小" aria-label="缩小">−</button>
         <button id="resetView" class="icon-button" title="重置视图" aria-label="重置视图">↺</button>
       </div>
 
-      <div class="attribution">
+      <div class="attribution glass">
         © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a> contributors
       </div>
 
-      <footer class="timeline">
-        <button id="playToggle" class="icon-button timeline-button" title="播放/暂停" aria-label="播放或暂停">▶</button>
-        <button id="latestYear" class="icon-button timeline-button" title="跳到最新年份" aria-label="跳到最新年份">»</button>
-        <label class="speed-control">
-          <span>速度</span>
-          <select id="speedSelect">
-            <option value="1200">0.5x</option>
-            <option value="650" selected>1x</option>
-            <option value="350">2x</option>
-            <option value="180">4x</option>
-          </select>
-        </label>
+      <footer class="timeline glass">
+        <div class="timeline-controls">
+          <button id="playToggle" class="icon-button timeline-button" title="播放/暂停" aria-label="播放或暂停">▶</button>
+          <button id="latestYear" class="icon-button timeline-button" title="跳到最新年份" aria-label="跳到最新年份">»</button>
+          <label class="speed-control">
+            <select id="speedSelect">
+              <option value="1200">0.5x</option>
+              <option value="650" selected>1x</option>
+              <option value="350">2x</option>
+              <option value="180">4x</option>
+            </select>
+          </label>
+        </div>
         <div class="year-jumps" aria-label="快捷年份">
           <button type="button" data-year="2000">2000</button>
           <button type="button" data-year="2005">2005</button>
@@ -159,10 +164,10 @@
           <button type="button" data-year="2020">2020</button>
           <button type="button" data-year="2025">2025</button>
         </div>
-        <label class="year-control">
+        <div class="year-control">
           <span id="yearLabel">2026</span>
           <input id="yearRange" type="range" min="1971" max="2026" value="2026" />
-        </label>
+        </div>
       </footer>
     </main>
 
