@@ -18,7 +18,7 @@
   "url",
   "opening_operation"
  ],
- "line_count": 713,
+ "line_count": 683,
  "lines": {
   "110100023111": {
    "line_id": "110100023111",
@@ -56,7 +56,7 @@
    "line_id": "110100023077",
    "type": "地铁",
    "name": "地铁4号线大兴线(天宫院--安河桥北)",
-   "title": "北京地铁4号线",
+   "title": "北京地铁4号线 / 北京地铁大兴线",
    "city": "北京市",
    "system": "北京地铁",
    "citycode": "10",
@@ -65,14 +65,14 @@
    "distance": "49.559",
    "basic_price": "3",
    "total_price": "7",
-   "url": "https://zh.wikipedia.org/wiki/%E5%8C%97%E4%BA%AC%E5%9C%B0%E9%93%814%E5%8F%B7%E7%BA%BF",
-   "opening_operation": "2009年9月28日"
+   "url": "https://zh.wikipedia.org/wiki/%E5%8C%97%E4%BA%AC%E5%9C%B0%E9%93%814%E5%8F%B7%E7%BA%BF / https://zh.wikipedia.org/wiki/%E5%8C%97%E4%BA%AC%E5%9C%B0%E9%93%81%E5%A4%A7%E5%85%B4%E7%BA%BF",
+   "opening_operation": "2009年9月28日 / 2010年12月30日"
   },
   "110100023076": {
    "line_id": "110100023076",
    "type": "地铁",
    "name": "地铁4号线大兴线(安河桥北--天宫院)",
-   "title": "北京地铁4号线",
+   "title": "北京地铁4号线 / 北京地铁大兴线",
    "city": "北京市",
    "system": "北京地铁",
    "citycode": "10",
@@ -81,8 +81,8 @@
    "distance": "49.59",
    "basic_price": "3",
    "total_price": "7",
-   "url": "https://zh.wikipedia.org/wiki/%E5%8C%97%E4%BA%AC%E5%9C%B0%E9%93%814%E5%8F%B7%E7%BA%BF",
-   "opening_operation": "2009年9月28日"
+   "url": "https://zh.wikipedia.org/wiki/%E5%8C%97%E4%BA%AC%E5%9C%B0%E9%93%814%E5%8F%B7%E7%BA%BF / https://zh.wikipedia.org/wiki/%E5%8C%97%E4%BA%AC%E5%9C%B0%E9%93%81%E5%A4%A7%E5%85%B4%E7%BA%BF",
+   "opening_operation": "2009年9月28日 / 2010年12月30日"
   },
   "120100021505": {
    "line_id": "120100021505",
@@ -1570,7 +1570,7 @@
    "basic_price": "2",
    "total_price": "11",
    "url": "https://zh.wikipedia.org/wiki/%E5%B9%BF%E5%B7%9E%E5%9C%B0%E9%93%8114%E5%8F%B7%E7%BA%BF",
-   "opening_operation": "2018年12月28日"
+   "opening_operation": "2017年12月28日"
   },
   "900000074701": {
    "line_id": "900000074701",
@@ -1586,7 +1586,7 @@
    "basic_price": "2",
    "total_price": "11",
    "url": "https://zh.wikipedia.org/wiki/%E5%B9%BF%E5%B7%9E%E5%9C%B0%E9%93%8114%E5%8F%B7%E7%BA%BF",
-   "opening_operation": "2018年12月28日"
+   "opening_operation": "2017年12月28日"
   },
   "900000074704": {
    "line_id": "900000074704",
@@ -1602,7 +1602,7 @@
    "basic_price": "2",
    "total_price": "6",
    "url": "https://zh.wikipedia.org/wiki/%E5%B9%BF%E5%B7%9E%E5%9C%B0%E9%93%8114%E5%8F%B7%E7%BA%BF",
-   "opening_operation": "2018年12月28日"
+   "opening_operation": "2017年12月28日"
   },
   "900000074703": {
    "line_id": "900000074703",
@@ -1618,7 +1618,7 @@
    "basic_price": "2",
    "total_price": "6",
    "url": "https://zh.wikipedia.org/wiki/%E5%B9%BF%E5%B7%9E%E5%9C%B0%E9%93%8114%E5%8F%B7%E7%BA%BF",
-   "opening_operation": "2018年12月28日"
+   "opening_operation": "2017年12月28日"
   },
   "900000075992": {
    "line_id": "900000075992",
@@ -10948,5 +10948,11 @@
    "url": "https://zh.wikipedia.org/wiki/%E6%B8%A9%E5%B7%9E%E5%B8%82%E5%9F%9F%E9%93%81%E8%B7%AFS2%E7%BA%BF",
    "opening_operation": "2023年8月26日"
   }
+ },
+ "filtered_scope": {
+  "excluded_cities": [
+   "澳门特别行政区",
+   "香港特别行政区"
+  ]
  }
 }
